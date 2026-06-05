@@ -8,7 +8,7 @@
 TThread t[threadCount];
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   randomSeed(analogRead(0));
 
   t[t_cpuusage].setTrigType(tt_INTERVAL);
