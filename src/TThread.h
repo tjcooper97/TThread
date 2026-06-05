@@ -70,7 +70,7 @@ class TThread {
     // What should this thread run?
       void (*_prog)();
       #ifdef FullTThread
-        std::function<void()> _callbackRunner; // ← new universal callback handler
+        std::function<void()> _callbackRunner;
       #endif
 
     // CPU Usage
@@ -89,7 +89,7 @@ class TThread {
         template <typename T>
         bool init(T* obj, void (T::*method)()) {
           _initialized = true;
-          _callbackRunner = [=]() { (obj->*method)(); }; // ← this is the real magic
+          _callbackRunner = [=]() { (obj->*method)(); };
           _usagestart = millis();
           return true;
         }
